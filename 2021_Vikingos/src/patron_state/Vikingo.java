@@ -1,41 +1,50 @@
 package patron_state;
 
 public class Vikingo {
+	private EstadoVikingo estado = EstadoVikingo.normal;
 	private int vida = 100;
-	private Estado estadoVikingo = new Normal();
 	private int danio = 10;
-
-	public void setDanio(int danio) {
-		this.danio = danio;
-	}
-
-	public void descontarVida(int danio) {
-		this.vida -= danio;
-	}
-
-	public void atacar(Vikingo enemigo) {
-		enemigo.recibirAtaque(this);
-		estadoVikingo = estadoVikingo.atacar(this);
-	}
-
-	public void recibirAtaque(Vikingo enemigo) {
-		estadoVikingo = estadoVikingo.recibirAtaque(this, enemigo.danio);
-	}
-
+	
+	
 	public void meditar() {
-		estadoVikingo = estadoVikingo.meditar(this);
+		estado = estado.meditar();
 	}
 
+	
+	public void atacar(Vikingo enemigo) {
+		enemigo.recibirAtaque(danio*estado.multiplicadorAtaque());
+		estado = estado.atacar();
+	}
+
+	
+	public void recibirAtaque(double danio) {
+		vida -= danio*estado.multiplicadorDefensa();
+		estado = estado.recibirAtaque();
+	}
+	
 	@Override
 	public String toString() {
-		return "Vikingo [vida=" + vida + ", estadoVikingo=" + estadoVikingo.toString() + ", danio=" + danio + "]";
+		return "Vida: " + vida + "\tEstado: " + estado.toString();
 	}
-
+	
 	public static void main(String[] args) {
 		Vikingo v = new Vikingo();
-		System.out.println(v);
-		v.recibirAtaque(new Vikingo());
-		System.out.println(v);
+		Vikingo vTest = new Vikingo();
+		
+		System.out.println(vTest);
+		v.atacar(vTest);		
+		System.out.println(vTest);
+		v.atacar(vTest);		
+		System.out.println(vTest);
+		v.atacar(vTest);		
+		System.out.println(vTest);
+		vTest.meditar();
+		System.out.println(vTest);
+		vTest.meditar();
+		System.out.println(vTest);
+		v.atacar(vTest);		
+		System.out.println(vTest);
+		
 	}
 
 }

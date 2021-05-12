@@ -1,25 +1,32 @@
 package patron_state;
 
-public class Berserker extends Estado {
+public class Berserker extends EstadoVikingo {
 
 	@Override
-	public Estado recibirAtaque(Vikingo vikingo, int danio) {
-		// TODO Auto-generated method stub
-		vikingo.descontarVida(danio / 2);
-		vikingo.setDanio(30);
+	public EstadoVikingo meditar() {
+		return EstadoVikingo.normal;
+	}
+
+	@Override
+	public EstadoVikingo atacar() {
 		return this;
 	}
 
 	@Override
-	public Estado meditar(Vikingo vikingo) {
-		// TODO Auto-generated method stub
-		vikingo.setDanio(10);
-		return new Normal();
+	public EstadoVikingo recibirAtaque() {
+		return this;
+	}
+	
+	public double multiplicadorAtaque() {
+		return 3;
+	}
+	
+	public double multiplicadorDefensa() {
+		return 0.5;
 	}
 
 	@Override
 	public String toString() {
-		return "Berserker []";
+		return "Berserker";
 	}
-
 }

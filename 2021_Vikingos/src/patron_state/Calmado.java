@@ -1,24 +1,28 @@
 package patron_state;
 
-public class Calmado extends Estado {
+public class Calmado extends EstadoVikingo {
 
 	@Override
-	public Estado atacar(Vikingo vikingo) {
-		// TODO Auto-generated method stub
-		vikingo.setDanio(10);
-		return new Normal();
+	public EstadoVikingo meditar() {
+		return this;
 	}
 
 	@Override
-	public Estado recibirAtaque(Vikingo vikingo, int danio) {
-		// TODO Auto-generated method stub
-		vikingo.setDanio(10);
-		return new Normal();
+	public EstadoVikingo atacar() {
+		return EstadoVikingo.normal;
 	}
 
+	@Override
+	public EstadoVikingo recibirAtaque() {
+		return this;
+	}
+	
+	public double multiplicadorDefensa() {
+		return 0;
+	}
+	
 	@Override
 	public String toString() {
-		return "Calmado []";
+		return "Calmado";
 	}
-
 }

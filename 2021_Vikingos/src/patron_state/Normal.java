@@ -1,24 +1,28 @@
 package patron_state;
 
-public class Normal extends Estado {
+public class Normal extends EstadoVikingo {
 
 	@Override
-	public Estado recibirAtaque(Vikingo vikingo, int danio) {
+	public EstadoVikingo meditar() {
 		// TODO Auto-generated method stub
-		vikingo.descontarVida(danio);
-		vikingo.setDanio(20);
-		return new Colerico();
+		return EstadoVikingo.calmado;
 	}
 
 	@Override
-	public Estado meditar(Vikingo vikingo) {
+	public EstadoVikingo atacar() {
 		// TODO Auto-generated method stub
-		return new Calmado();
+		return this;
+	}
+
+	@Override
+	public EstadoVikingo recibirAtaque() {
+		// TODO Auto-generated method stub
+		return EstadoVikingo.colerico;
 	}
 
 	@Override
 	public String toString() {
-		return "Normal []";
+		return "Normal";
 	}
-
+	
 }
