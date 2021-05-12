@@ -7,16 +7,18 @@ public abstract class EstadoVikingo {
 	protected static final EstadoVikingo colerico = new Colerico();
 	protected static final EstadoVikingo berserker = new Berserker();
 	
-	public abstract EstadoVikingo meditar();
-	public abstract EstadoVikingo atacar();
-	public abstract EstadoVikingo recibirAtaque();
-	
-	public double multiplicadorAtaque() {
-		return 1;
+	public EstadoVikingo meditar() {
+		return this;
+	}
+	public EstadoVikingo atacar() {
+		return this;
+	}
+	public EstadoVikingo recibirAtaque() {
+		return this;
 	}
 	
-	public double multiplicadorDefensa() {
-		return 1;
-	}
+	public abstract int multiplicadorAtaque(int danio);
+	
+	public abstract int multiplicadorDefensa(int danio);
 	
 }

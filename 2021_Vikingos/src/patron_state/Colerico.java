@@ -8,27 +8,21 @@ public class Colerico extends EstadoVikingo {
 	}
 
 	@Override
-	public EstadoVikingo atacar() {
-		return this;
-	}
-
-	@Override
 	public EstadoVikingo recibirAtaque() {
 		return EstadoVikingo.berserker;
 	}
-	
-	public double multiplicadorAtaque() {
-		return 2;
+
+	public int multiplicadorAtaque(int danio) {
+		return 2 * danio;
 	}
-	
-	public double multiplicadorDefensa() {
-		return 2;
+
+	public int multiplicadorDefensa(int danio) {
+		return 2 * danio;
 	}
 
 	@Override
 	public String toString() {
 		return "Colerico";
 	}
-
 
 }

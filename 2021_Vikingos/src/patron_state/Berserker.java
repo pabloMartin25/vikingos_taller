@@ -8,21 +8,15 @@ public class Berserker extends EstadoVikingo {
 	}
 
 	@Override
-	public EstadoVikingo atacar() {
-		return this;
+	public int multiplicadorAtaque(int danio) {
+		// TODO Auto-generated method stub
+		return 3 * danio;
 	}
 
 	@Override
-	public EstadoVikingo recibirAtaque() {
-		return this;
-	}
-	
-	public double multiplicadorAtaque() {
-		return 3;
-	}
-	
-	public double multiplicadorDefensa() {
-		return 0.5;
+	public int multiplicadorDefensa(int danio) {
+		// TODO Auto-generated method stub
+		return danio / 2;
 	}
 
 	@Override
